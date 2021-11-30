@@ -18,16 +18,20 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-6">
           <h4>Expressões regulares</h4>
           <label for="expressaoRegular" class="form-label">Expressão regular</label>
           <input type="text" class="form-control" id="expressaoRegular" placeholder="(a+b).aa.(a+b)">
-          <label for="expressaoRegular" class="form-label">Entrada</label>
-          <input type="text" class="form-control" id="expressaoRegular" placeholder="(a+b).aa.(a+b)">
+          <div class='row'>
+            <label for="entrada" class="form-label">Entradas</label>
+            <div class="col-12" id='entradas'>
+              <div><input type="text" class="form-control entrada" placeholder="baab"> <button onclick="removerEntradas(event)" class="btn btn-danger">X</button></div>
+            </div>
+          </div>
 
-          <button class="btn btn-success">Testar</button> <button class="btn btn-primary">Adicionar Entrada</button> <button class="btn btn-danger">Remover Entrada</button>
+          <button class="btn btn-success">Testar</button> <button class="btn btn-primary" onclick="addEntrances()">Adicionar Entrada</button>
         </div>
-        <div class="col-8">
+        <div class="col-6">
           <div class="row">
             <div class="col-12">
               <h4>Autômatos finitos</h4>
@@ -37,35 +41,8 @@
         </div>
       </div>
     </div>
-    
-    <script type="text/javascript">
-      // create an array with nodes
-      var nodes = new vis.DataSet([
-        { id: 1, label: "Node 1" },
-        { id: 2, label: "Node 2" },
-        { id: 3, label: "Node 3" },
-        { id: 4, label: "Node 4" },
-        { id: 5, label: "Node 5" },
-      ]);
-
-      // create an array with edges
-      var edges = new vis.DataSet([
-        { from: 1, to: 3 },
-        { from: 1, to: 2 },
-        { from: 2, to: 4 },
-        { from: 2, to: 5 },
-        { from: 3, to: 3 },
-      ]);
-
-      // create a network
-      var container = document.getElementById("mynetwork");
-      var data = {
-        nodes: nodes,
-        edges: edges,
-      };
-      var options = {};
-      var network = new vis.Network(container, data, options);
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./assets/js/automata.js"></script>
+    <script src='./assets/js/regex.js'></script>
   </body>
 </html>
