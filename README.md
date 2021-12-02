@@ -1,3 +1,4 @@
 # LFTC
 
-Aluno: Weslley de Campos
+Alunos: 
+  Weslley de Campos && Seqzada 
