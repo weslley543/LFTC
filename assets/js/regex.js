@@ -1,35 +1,27 @@
-const regularExpression = null;
+let regularExpression = null;
 
 const entrances = [];
 const validEntrances = [];
 
 function testEntrances () {
+  setRegularExpression()
   const expression = new RegExp(regularExpression);
-  for(let entrance of regularExpression) {
-    validEntrances[entrance] = expression.test(entrance); 
-  }
-  colorizeInputs(validEntrances)
+  
+  const entrance = document.getElementsByClassName('entrada')[0].value;
+  
+  expression.test(entrance) ? colorizeSuccess() : colorizeFailed()
+  
+
 }
 
-function colorizeInputs(validEntrances) {
-  validEntrances.forEach(validEntrance => {
-    const input = document.querySelector(`input${validEntrance.input}`)
-    validEntrance ? input.style.backgroundColor = 'green' : input.style.backgroundColor = 'red' 
-  })
+function setRegularExpression () {
+  regularExpression = document.getElementById('expressaoRegular').value;
 }
 
-function setEntrance () {
-  if(!exp){
-    regularExpression = ''
-  }
+function colorizeSuccess () {
+  document.getElementsByClassName('entrada')[0].style.borderColor = 'green'
 }
 
-function addEntrances () {
-  const entradas = document.getElementById('entradas');
-  const newEntrance = '<div><input type="text" class="form-control entrada" placeholder="baab"> <button class="btn btn-danger">X</button></div>'
-  entradas.innerHTML +=newEntrance;
-}
-
-function removerEntradas (event) {
-  console.log(event)
+function colorizeFailed () {
+  document.getElementsByClassName('entrada')[0].style.borderColor = 'red'
 }
